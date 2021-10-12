@@ -46,7 +46,7 @@ function renderLicenseLink(license) {
             break;
 
         case "I don't want a license":
-            licenseLink = "No license selected";
+            licenseLink = "This project does not have a license.";
             break;
     }     
     return licenseLink;
@@ -82,11 +82,11 @@ ${data.description}
     
 ## Table of Contents
 
-[Installation](#installation)
-[Usage](#usage)
-[Contributions](#contributions)
-[Tests](#tests)
-[Questions](#questions)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributions](#contributions)
+- [Tests](#tests)
+- [Questions](#questions)
 
 ## Installation
 ${data.installation}
@@ -101,7 +101,7 @@ ${data.contributing}
 ${data.tests}
 
 ## Questions
-Please email any questions to to ${data.email} or reference my [GitHub profile](https://github.com/${data.gitHub}). 
+Please email any questions to ${data.email} or reference my [GitHub profile](https://github.com/${data.gitHub}). 
 `;
 }
 
