@@ -53,7 +53,7 @@ const questions = [
     },
 ];
 
-// TODO: Create a function to write README file
+// Writes the final template string to the README file
 function writeToFile(finalReadme) {
 
     fs.writeFile("test.md", finalReadme, err =>
@@ -61,20 +61,15 @@ function writeToFile(finalReadme) {
 
 }
 
-// TODO: Create a function to initialize app
+// Initializes app
 function init() {
     inquirer
         .prompt(questions)
-        // TODO: deal with response pass to write file 
         .then ((responses) => {
-            console.log(responses);
-            
-            //TODO: Save project title to a variable
-            // const {fileName} = responses.title + ".md";
-
+            // Sends the responses to the generate markdown package and sets the return to finalReadme
             const finalReadme = generateMarkdown(responses);
-            console.log(finalReadme);
            
+            // Calls the function to write the final file using the template string
             writeToFile(finalReadme);
         })
 }
