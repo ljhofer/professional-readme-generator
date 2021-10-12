@@ -64,9 +64,6 @@ function renderLicenseSection(license) {
 }
 
 // TODO: Figure out how to do the Table of Contents section and make it link
-// TODO: Add sections to table of contents
-// TODO: Make the GH link actually link
-
 function generateMarkdown(data) {
     
     const licenseBadge = renderLicenseBadge(data.license);
@@ -84,13 +81,19 @@ ${data.description}
     
 ## Table of Contents
 
+[Installation](#installation)
+[Usage](#usage)
+[Contributions](#contributions)
+[Tests](#tests)
+[Questions](#questions)
+
 ## Installation
 ${data.installation}
 
 ## Usage
 ${data.usage}
 
-## How to Contribute
+## Contributions
 ${data.contributing}
 
 ## Tests
