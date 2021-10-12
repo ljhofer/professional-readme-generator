@@ -1,9 +1,9 @@
-// TODO: Include packages needed for this application
+// Calls packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// TODO: Create an array of questions for user input
+// An array of questions for user input
 const questions = [
     {
         type: "input",
@@ -54,10 +54,10 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, finalReadme) {
+function writeToFile(finalReadme) {
 
-    // TODO: can We write to this readme or do we create a new one with a different file?
-   
+    fs.writeFile("test.md", finalReadme, err =>
+        err ? console.error(err) : console.log("Success!"))
 
 }
 
@@ -73,11 +73,9 @@ function init() {
             // const {fileName} = responses.title + ".md";
 
             const finalReadme = generateMarkdown(responses);
-           
-            //writeToFile(fileName, finalReadme);
-
             console.log(finalReadme);
-
+           
+            writeToFile(finalReadme);
         })
 }
 
