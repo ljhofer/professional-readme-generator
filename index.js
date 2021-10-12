@@ -29,7 +29,7 @@ const questions = [
         type: "list",
         message: "Which license would you like?",
         name: "license",
-        choices: ["MIT", "Apache", "GNU General Public License", "Mozilla Public License 2.0", "I don't want a license"],
+        choices: ["MIT", "Apache", "Boost Software License", "Mozilla Public License 2.0", "I don't want a license"],
     },
     {
         type: "input",
@@ -57,10 +57,7 @@ const questions = [
 function writeToFile(fileName, finalReadme) {
 
     // TODO: can We write to this readme or do we create a new one with a different file?
-    fs.writeFile(fileName, finalReadme, err => {
-        err ? console.log("Oops!") : console.log("Nice!")
-    })
-
+   
 
 }
 
@@ -73,22 +70,13 @@ function init() {
             console.log(responses);
             
             //TODO: Save project title to a variable
-            const {fileName} = responses.title + ".md";
+            // const {fileName} = responses.title + ".md";
 
-
-
-            //const finalReadme = generateMarkdown(responses)
+            const finalReadme = generateMarkdown(responses);
            
+            //writeToFile(fileName, finalReadme);
 
-
-        
-        //writeToFile(fileName, finalReadme);
-
-
-
-
-
-
+            console.log(finalReadme);
 
         })
 }
