@@ -30,19 +30,23 @@ function renderLicenseLink(license) {
 
     switch(license) {
         case "MIT":
-            licenseLink = "This project licensed under the [MIT License](https://opensource.org/licenses/MIT).";
+            licenseLink = `## License 
+This project licensed under the [MIT License](https://opensource.org/licenses/MIT).`;
             break;
 
         case "Apache":
-            licenseLink = "This project licensed under the [Apache 2.0 License](https://opensource.org/licenses/Apache-2.0).";
+            licenseLink = `## License 
+This project licensed under the [Apache 2.0 License](https://opensource.org/licenses/Apache-2.0).`;
             break;
         
         case "Boost Software License": 
-            licenseLink = "This project licensed under the [Boost Software License](https://www.boost.org/LICENSE_1_0.txt).";
+            licenseLink =  `## License 
+This project licensed under the [Boost Software License](https://www.boost.org/LICENSE_1_0.txt).`;
             break;
 
         case "Mozilla Public License 2.0":
-            licenseLink = "This project licensed under the [Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0).";
+            licenseLink =  `## License 
+This project licensed under the [Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0).`;
             break;
 
         case "I don't want a license":
@@ -52,26 +56,24 @@ function renderLicenseLink(license) {
     return licenseLink;
 }
 
-// 
-function renderLicenseSection(license) {
-    
-    licenseLink = renderLicenseLink(license);
-
+// Renders a license section in the Table of Contents if a license was chosen
+function renderLicenseSection(licenseLink) {
     let licenseSection = "";
        
     if (licenseLink) {
-        licenseSection = `## License
-${licenseLink}`;
+        licenseSection = `- [License](#license)`;
     }
-    return licenseSection
+    return licenseSection;
 
 }
 
 // Generates the template string to be passed to the markdown file
 function generateMarkdown(data) {
     
+    // Calls and assigns variables for the returns from the three license sections
+    const licenseLink = renderLicenseLink(data.license);
     const licenseBadge = renderLicenseBadge(data.license);
-    licenseSection = renderLicenseSection(data.license);
+    const licenseSection = renderLicenseSection(licenseLink);
 
    
     return `# ${data.title}
@@ -84,7 +86,7 @@ ${data.description}
 
 - [Installation](#installation)
 - [Usage](#usage)
-${licenseTableOfContents}
+${licenseSection}
 - [Contributions](#contributions)
 - [Tests](#tests)
 - [Questions](#questions)
@@ -95,7 +97,6 @@ ${data.installation}
 ## Usage
 ${data.usage}
 
-## License
 ${licenseLink}
 
 ## Contributions
