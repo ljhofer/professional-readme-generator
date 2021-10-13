@@ -56,7 +56,7 @@ const questions = [
 // Writes the final template string to the README file
 function writeToFile(finalReadme) {
 
-    fs.writeFile("test.md", finalReadme, err =>
+    fs.writeFile("sampleREADME.md", finalReadme, err =>
         err ? console.error(err) : console.log("Success!"))
 
 }
