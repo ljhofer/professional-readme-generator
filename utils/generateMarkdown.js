@@ -46,17 +46,32 @@ function renderLicenseLink(license) {
             break;
 
         case "I don't want a license":
-            licenseLink = "This project does not have a license.";
+            licenseLink = "";
             break;
     }     
     return licenseLink;
+}
+
+// 
+function renderLicenseSection(license) {
+    
+    licenseLink = renderLicenseLink(license);
+
+    let licenseSection = "";
+       
+    if (licenseLink) {
+        licenseSection = `## License
+${licenseLink}`;
+    }
+    return licenseSection
+
 }
 
 // Generates the template string to be passed to the markdown file
 function generateMarkdown(data) {
     
     const licenseBadge = renderLicenseBadge(data.license);
-    const licenseLink = renderLicenseLink(data.license);
+    licenseSection = renderLicenseSection(data.license);
 
    
     return `# ${data.title}
@@ -69,7 +84,7 @@ ${data.description}
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [License](#license)
+${licenseTableOfContents}
 - [Contributions](#contributions)
 - [Tests](#tests)
 - [Questions](#questions)

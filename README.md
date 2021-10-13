@@ -28,12 +28,8 @@ Then answer the questions with the information you would like included in your R
 
 After entering all of your information, the program will create a README file in your folder. 
 
-Here is a screencast of how the program runs. 
 
-[Video of creator using the program](https://watch.screencastify.com/v/jm1b2txhnvXwFx7ktnXj)
-![Video of creator using the program](./assets/images/testvideo.mp4)
-
-
+[Here is a video showing how to use the program](https://watch.screencastify.com/v/jm1b2txhnvXwFx7ktnXj)
 
 
 ## License
